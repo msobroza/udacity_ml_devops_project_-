@@ -1,5 +1,8 @@
-
-"""test"""
+"""
+Module contains test of ML churn customer analysis
+Author : Max Raphael Sobroza Marques
+Date : 21 November 2022
+"""
 import os
 import logging
 import pandas as pd

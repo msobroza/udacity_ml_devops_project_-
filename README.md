@@ -11,16 +11,25 @@ Overview of the files and data present in the root directory.
 
 * Root directory
   * data
-    * `bank_data.csv` -> data
-  * images -> It contains all images from all preprocessing steps
+    * `bank_data.csv` # data
+  * images # It contains all images from all preprocessing steps
     * eda
     * results
-  * models -> Stored models
-  * `churn_library.py` -> File that contains all functions of EDA, preprocessing and to train a ML model
-  * `churn_script_logging_and_tests.py` -> Test file
+  * models # Stored models
+  * `churn_library.py` # File that contains all functions of EDA, preprocessing and to train a ML model
+  * `churn_script_logging_and_tests.py` # Test file
 ## Running Files
 1. Install libraries
+
+```
+# Workspace run
+python -m pip install -r requirements_py3.6.txt
+```
+
 2. Test the code
+
 `pylint churn_script_logging_and_tests.py`
+
 3. Execute the entire pipeline
+
 `python churn_script.py`

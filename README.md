@@ -1,10 +1,14 @@
+# Author
+
+This project was done by Max Raphael Sobroza Marques in 8th January 2023
+
 # Predict Customer Churn
 
 - Project **Predict Customer Churn** of ML DevOps Engineer Nanodegree Udacity
 
 ## Project Description
 This is my first project of course ML DevOps Engineer Nanodegree Udacity
-The goal of this project is to refactor a Notebook python to script python code
+The goal of this project is to refactor a Notebook python to script a python code
 
 ## Files and data description
 Overview of the files and data present in the root directory.

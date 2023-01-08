@@ -85,7 +85,7 @@ def bank_dataset():
     return import_data("./data/bank_data.csv")
 
 
-def test_eda(dummy_dataset):
+def test_eda_dummy(dummy_dataset):
     """
     test eda
     """
@@ -117,9 +117,28 @@ def test_eda(dummy_dataset):
     assert os.path.exists("./images/eda/correlation_heatmap.png")
 
 
-def test_encoder_helper(dummy_dataset):
+def test_eda(bank_dataset):
+    """
+    test eda
+    """
+    remove_existing_path("./images/eda/churn_hist.png")
+    remove_existing_path("./images/eda/customer_age_hist.png")
+    remove_existing_path("./images/eda/marital_status_bar.png")
+    remove_existing_path("./images/eda/total_transaction_dist.png")
+    remove_existing_path("./images/eda/correlation_heatmap.png")
+    eda_df = perform_eda(bank_dataset)
+    assert isinstance(eda_df, pd.DataFrame)
+
+    # Test that the function creates and saves the expected plots
+    assert os.path.exists("./images/eda/churn_hist.png")
+    assert os.path.exists("./images/eda/customer_age_hist.png")
+    assert os.path.exists("./images/eda/marital_status_bar.png")
+    assert os.path.exists("./images/eda/total_transaction_dist.png")
+    assert os.path.exists("./images/eda/correlation_heatmap.png")
+
+def test_encoder_helper(bank_dataset):
     """Missing encoder helper"""
-    dummy_dataset = perform_eda(dummy_dataset)
+    dummy_dataset = perform_eda(bank_dataset)
     category_list = ["Attrition_Flag", "Marital_Status"]
     encoder_helper_df = encoder_helper(dummy_dataset, category_list)
 

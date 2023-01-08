@@ -151,18 +151,18 @@ def perform_eda(input_df: pd.DataFrame) -> pd.DataFrame:
     plt.savefig(os.path.join(EDA_PLOT_RELATIVE_PATH, "churn_hist.png"))
 
     # Plot Customer Age histogram
-    plt.plot(figsize=EDA_FIGURE_SIZE)
+    _, ax_fig = plt.subplots(figsize=EDA_FIGURE_SIZE)
     eda_df.hist("Customer_Age", ax=ax_fig)
     plt.savefig(os.path.join(EDA_PLOT_RELATIVE_PATH, "customer_age_hist.png"))
 
     # Plot Marital Status bar plot
-    plt.plot(figsize=EDA_FIGURE_SIZE)
-    eda_df.Marital_Status.value_counts("normalize").plot(kind="bar")
+    _, ax_fig = plt.subplots(figsize=EDA_FIGURE_SIZE)
+    eda_df.Marital_Status.value_counts("normalize").plot(kind="bar", ax=ax_fig)
     plt.savefig(os.path.join(EDA_PLOT_RELATIVE_PATH, "marital_status_bar.png"))
 
     # Plot Total Transaction distribution
-    plt.plot(figsize=EDA_FIGURE_SIZE)
-    sns.distplot(eda_df["Total_Trans_Ct"])
+    _, ax_fig = plt.subplots(figsize=EDA_FIGURE_SIZE)
+    sns.distplot(eda_df["Total_Trans_Ct"], ax=ax_fig)
     plt.savefig(
         os.path.join(
             EDA_PLOT_RELATIVE_PATH,
@@ -336,7 +336,7 @@ def feature_importance_shap_plot(
     explainer = shap.TreeExplainer(model)
     shap_values = explainer.shap_values(x_data)
     plt.figure(figsize=EDA_FIGURE_SIZE)
-    shap.summary_plot(shap_values, x_data)
+    shap.summary_plot(shap_values, x_data, show=False)
     plt.savefig(output_pth)
 
 
